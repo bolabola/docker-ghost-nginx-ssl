@@ -7,6 +7,7 @@
 3. 3-docker[ghost+nginx-proxy+docker-letsencrypt-nginx-proxy-companion]
 在2的基础上添加自动ssl功能，该docker-compose.yml未经测试，因为我用自己的域名执行了无数次测试，导致域名申请达到letsencrypt上限了！建议本机环境测试该yml
 4. example.com 替换为自己的域名
+5. 备份ghost只需要备份与docker-compose.yml同目录的ghost文件夹即可
 # 其他
 ## docker
 1. 如果不“显示”指定网络，则会attach到同一个默认网络，模式为bridge
