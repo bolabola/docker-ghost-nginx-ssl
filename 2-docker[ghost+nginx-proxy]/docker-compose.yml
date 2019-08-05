@@ -22,5 +22,6 @@ services:
     volumes:
       - ./ghost/content:/var/lib/ghost/content
     environment:
+      - url= https://example.com
       - VIRTUAL_PORT=2368
       - VIRTUAL_HOST=example.com
