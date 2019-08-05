@@ -1,0 +1,17 @@
+version: '3'
+services:
+  ghost:
+    image: ghost:alpine
+    restart: always
+    volumes:
+      - ./ghost/content:/var/lib/ghost/content
+  nginx:
+    build:
+      context: ./nginx
+      dockerfile: Dockerfile
+    restart: always
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+       - ./nginx/certs:/etc/nginx/certs

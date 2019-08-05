@@ -1,0 +1,22 @@
+version: '3'
+services:
+  nginx-proxy:
+    image: jwilder/nginx-proxy
+    container_name: nginx-proxy
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx/certs:/etc/nginx/certs:ro
+      - ./nginx/vhost.d:/etc/nginx/vhost.d
+      - ./nginx/conf.d:/etc/nginx/conf.d
+      - /var/run/docker.sock:/tmp/docker.sock:ro
+
+  ghost:
+    image: ghost:alpine
+    restart: always
+    volumes:
+      - ./ghost/content:/var/lib/ghost/content
+    environment:
+      - VIRTUAL_PORT=2368
+      - VIRTUAL_HOST=example.com
