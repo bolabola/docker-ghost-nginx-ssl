@@ -14,9 +14,7 @@ services:
       - /var/run/docker.sock:/tmp/docker.sock:ro
 
   ghost:
-    build:
-      context: ./ghost
-      dockerfile: Dockerfile
+    build: ./ghost
     container_name: ghost
     restart: always
     volumes:
